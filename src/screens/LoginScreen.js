@@ -6,9 +6,7 @@ export default function LoginScreen({ navigation }) {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Implementação do login virá mais tarde
     console.log(`Email: ${email}, Password: ${password}`);
-    // Navegar para Home ou Carteirinha após login bem-sucedido
   };
 
   return (

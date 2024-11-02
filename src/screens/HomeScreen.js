@@ -24,15 +24,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   logo: {
-    width: 300, // largura da logo
-    height: 300, // altura da logo
+    width: 300, 
+    height: 300, 
     marginBottom: 20,
-    resizeMode: 'contain', // ajusta a imagem para não cortar
+    resizeMode: 'contain', 
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#32a852', // verde claro
+    color: '#32a852', 
     marginBottom: 20,
   },
   button: {

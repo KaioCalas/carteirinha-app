@@ -38,14 +38,14 @@ export default function QRCodeScanner({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF', // Fundo branco
+    backgroundColor: '#FFFFFF', 
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#32a852', // Verde claro
+    color: '#32a852', 
     marginBottom: 20,
   },
   buttonContainer: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     padding: 15,
-    backgroundColor: '#32a852', // Verde claro
+    backgroundColor: '#32a852', 
     borderRadius: 8,
     alignItems: 'center',
   },

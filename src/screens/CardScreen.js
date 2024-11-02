@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 const CardScreen = ({ route }) => {
-  const { alunoData } = route.params; // Obter os dados do aluno
+  const { alunoData } = route.params; 
 
   return (
     <View>
