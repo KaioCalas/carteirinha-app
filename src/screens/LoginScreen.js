@@ -1,40 +1,67 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import AccessibilityButton from '../components/AcessibiliyButton';
+import { useAccessibility } from '../context/AccessibilityContext';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { fontSize, isHighContrast } = useAccessibility(); // Acessando o contexto de acessibilidade
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Password: ${password}`);
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+    <View style={[styles.container, isHighContrast && styles.highContrast]}>
+      <Text
+        style={[styles.title, { fontSize }]}
+        accessible={true}
+        accessibilityRole="header"
+        accessibilityLabel="Tela de login"
+      >
+        Login
+      </Text>
 
       <TextInput
-        style={styles.input}
+        style={[styles.input, { fontSize }]}
         placeholder="E-mail institucional"
         placeholderTextColor="#8c8c8c"
         keyboardType="email-address"
         autoCapitalize="none"
         value={email}
         onChangeText={setEmail}
+        accessible={true}
+        accessibilityLabel="Campo de E-mail"
+        accessibilityHint="Digite seu e-mail institucional"
       />
 
       <TextInput
-        style={styles.input}
+        style={[styles.input, { fontSize }]}
         placeholder="Senha"
         placeholderTextColor="#8c8c8c"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
+        accessible={true}
+        accessibilityLabel="Campo de Senha"
+        accessibilityHint="Digite sua senha"
       />
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('QRCode')}>
-        <Text style={styles.buttonText}>Entrar</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('QRCode')}
+        accessible={true}
+        accessibilityRole="button"
+        accessibilityLabel="Botão de Entrar"
+        accessibilityHint="Toque para fazer login e ir para a tela do QR Code"
+      >
+        <Text style={[styles.buttonText, { fontSize }]}>Entrar</Text>
       </TouchableOpacity>
+
+      {/* Botão de acessibilidade */}
+      <AccessibilityButton />
     </View>
   );
 }
@@ -45,6 +72,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+  },
+  highContrast: {
+    backgroundColor: '#000000',
   },
   title: {
     fontSize: 28,
